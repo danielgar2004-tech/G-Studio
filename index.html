@@ -359,13 +359,18 @@ h1, h2, h3, h4 {
 .nav-menu a:hover::after { width: 100%; }
 
 .nav-cta {
-  background: var(--volt);
-  color: var(--obsidian);
-  padding: 0.65rem 1.35rem;
+  background: var(--volt) !important;
+  color: var(--obsidian) !important;
+  padding: 0.7rem 1.6rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
   white-space: nowrap;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .nav-cta:hover {
@@ -428,7 +433,12 @@ h1, h2, h3, h4 {
     border-bottom: 1px solid rgba(255,255,255,0.05);
     font-size: 1rem;
   }
-  .nav-cta { width: 100%; text-align: center; margin-top: var(--sp-2); }
+  .nav-cta {
+    width: 100%;
+    text-align: center;
+    margin-top: var(--sp-2);
+    padding: 0.95rem 1.6rem;
+  }
 }
 
 /* Progress bar de scroll */
