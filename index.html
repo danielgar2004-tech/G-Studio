@@ -2886,8 +2886,13 @@ FOOTER
 
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = heroCanvas.clientWidth = heroCanvas.parentElement.clientWidth;
-      h = heroCanvas.clientHeight = heroCanvas.parentElement.clientHeight;
+      const parent = heroCanvas.parentElement;
+      w = parent.clientWidth;
+      h = parent.clientHeight;
+      // Tamaño visual vía CSS
+      heroCanvas.style.width  = w + 'px';
+      heroCanvas.style.height = h + 'px';
+      // Tamaño interno del buffer de dibujo
       heroCanvas.width  = w * dpr;
       heroCanvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
