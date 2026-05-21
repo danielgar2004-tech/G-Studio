@@ -1631,6 +1631,204 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    18 · WHATSAPP FLOATING BUTTON
    ========================================================================== */
+/* ==========================================================================
+   DONNA · Asistente Virtual — Sección + Botón Flotante
+   ========================================================================== */
+.donna-section {
+  background: var(--night);
+  position: relative;
+  overflow: hidden;
+}
+.donna-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--volt), transparent);
+}
+.donna-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.donna-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--volt-soft);
+  border: 1px solid rgba(212,255,0,0.15);
+  color: var(--volt);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.donna-badge svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+}
+.donna-badge .donna-pulse {
+  width: 8px; height: 8px;
+  background: var(--volt);
+  border-radius: 50%;
+  animation: donnaPulseGlow 2s ease-in-out infinite;
+}
+@keyframes donnaPulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212,255,0,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(212,255,0,0); }
+}
+.donna-header .section-title {
+  margin-bottom: 0.75rem;
+}
+.donna-subtitle {
+  color: var(--ice-2);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  max-width: 55ch;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.donna-chat-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--steel-soft);
+  background: var(--obsidian);
+  box-shadow:
+    0 0 0 1px rgba(212,255,0,0.05),
+    0 24px 60px rgba(0,0,0,0.5),
+    0 0 80px rgba(212,255,0,0.03);
+}
+.donna-chat-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--obsidian-2);
+  border-bottom: 1px solid var(--steel-soft);
+}
+.donna-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--night-2), var(--steel-soft));
+  border: 2px solid var(--volt);
+  display: grid;
+  place-items: center;
+  color: var(--volt);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.donna-chat-info h4 {
+  color: var(--ice);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+.donna-chat-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--volt);
+  font-weight: 400;
+}
+.donna-chat-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--volt);
+  border-radius: 50%;
+}
+.donna-chat-frame {
+  width: 100%;
+  height: 500px;
+  border: none;
+  display: block;
+}
+.donna-float {
+  position: fixed;
+  bottom: 96px; right: 24px;
+  width: 60px; height: 60px;
+  background: linear-gradient(135deg, var(--night), var(--obsidian-2));
+  border: 2px solid var(--volt);
+  color: var(--volt);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 900;
+  box-shadow: 0 12px 30px rgba(212,255,0,0.15), 0 0 20px rgba(212,255,0,0.08);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+.donna-float.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.donna-float:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 40px rgba(212,255,0,0.3), 0 0 30px rgba(212,255,0,0.12);
+}
+.donna-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--volt);
+  animation: donnaPulse 2.5s ease-out infinite;
+}
+@keyframes donnaPulse {
+  0%   { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.donna-float svg {
+  width: 26px; height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.donna-float-label {
+  position: absolute;
+  right: 72px;
+  white-space: nowrap;
+  background: var(--obsidian-2);
+  border: 1px solid var(--steel-soft);
+  color: var(--ice);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+.donna-float:hover .donna-float-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (max-width: 768px) {
+  .donna-chat-frame { height: 420px; }
+  .donna-float { bottom: 88px; right: 16px; width: 52px; height: 52px; }
+  .donna-float svg { width: 22px; height: 22px; }
+  .donna-float-label { display: none; }
+}
+@media (max-width: 480px) {
+  .donna-chat-frame { height: 380px; }
+}
+
 .wa-float {
   position: fixed;
   bottom: 24px; right: 24px;
@@ -1735,6 +1933,7 @@ NAVBAR
       <li role="none"><a href="#proceso" role="menuitem">Proceso</a></li>
       <li role="none"><a href="#precios" role="menuitem">Precios</a></li>
       <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
+      <li role="none"><a href="#donna" role="menuitem">Donna AI</a></li>
       <li role="none"><a href="#contacto" class="nav-cta" role="menuitem">Contratar</a></li>
     </ul>
   </nav>
@@ -2413,6 +2612,46 @@ FAQ
 <!-- ==========================================================================
 CONTACTO
 ========================================================================== -->
+
+<!-- ==========================================================================
+DONNA · Asistente Virtual
+========================================================================== -->
+<section class="donna-section" id="donna">
+  <div class="container">
+    <div class="donna-header reveal">
+      <div class="donna-badge">
+        <div class="donna-pulse"></div>
+        <span>Asistente Virtual · 24/7</span>
+      </div>
+      <h2 class="section-title" data-scramble>¿Tienes dudas? Pregúntale a Donna.</h2>
+      <p class="donna-subtitle">
+        Donna es la asistente virtual de G-Studio. Puede resolver tus preguntas sobre servicios,
+        proceso de trabajo y todo lo que necesitas saber antes de iniciar tu proyecto.
+      </p>
+    </div>
+
+    <div class="donna-chat-wrapper reveal reveal-delay-1">
+      <div class="donna-chat-bar">
+        <div class="donna-avatar">D</div>
+        <div class="donna-chat-info">
+          <h4>Donna — Asistente Virtual</h4>
+          <span class="donna-chat-status">En línea</span>
+        </div>
+      </div>
+      <iframe
+        class="donna-chat-frame"
+        src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/05/21/02/20260521025748-REQKBP0M.json"
+        title="Donna — Asistente virtual de G-Studio"
+        loading="lazy"
+        allow="microphone">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+CONTACTO
+========================================================================== -->
 <section class="contact" id="contacto">
   <div class="container">
     <div class="contact-grid">
@@ -2555,6 +2794,12 @@ FOOTER
   </div>
 </footer>
 
+<!-- Donna flotante -->
+<a href="#donna" class="donna-float" id="donnaFloat" aria-label="Preguntar a Donna">
+  <span class="donna-float-label">Pregúntale a Donna</span>
+  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="12" y1="7" x2="12" y2="13"/></svg>
+</a>
+
 <!-- WhatsApp flotante -->
 <a href="https://wa.me/51902364773?text=Hola%20Daniel%2C%20tengo%20una%20consulta%20sobre%20G-Studio."
    target="_blank" rel="noopener" class="wa-float" id="waFloat" aria-label="Contactar por WhatsApp">
@@ -2585,6 +2830,7 @@ FOOTER
   const navbar = $('#navbar');
   const progress = $('#scrollProgress');
   const waFloat = $('#waFloat');
+  const donnaFloat = $('#donnaFloat');
 
   let lastScroll = 0;
   function onScroll() {
@@ -2595,6 +2841,7 @@ FOOTER
       progress.style.width = (sc / docH * 100) + '%';
     }
     if (waFloat) waFloat.classList.toggle('show', sc > 500);
+    if (donnaFloat) donnaFloat.classList.toggle('show', sc > 400);
     lastScroll = sc;
   }
   window.addEventListener('scroll', onScroll, { passive: true });
