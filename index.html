@@ -1821,13 +1821,19 @@ h1, h2, h3, h4 {
 }
 @media (max-width: 768px) {
   .donna-chat-frame { height: 420px; }
-  .donna-float { bottom: 88px; right: 16px; width: 52px; height: 52px; }
-  .donna-float svg { width: 22px; height: 22px; }
+  .donna-float,
+  .wa-float {
+    width: 56px !important;
+    height: 56px !important;
+    right: 16px !important;
+  }
+  .donna-float { bottom: 88px !important; }
+  .wa-float { bottom: 20px !important; }
+  .donna-float svg { width: 24px; height: 24px; }
+  .wa-float svg { width: 28px; height: 28px; }
   .donna-float-label { display: none; }
-  .wa-float { bottom: 24px; right: 16px; width: 52px; height: 52px; }
-  .wa-float svg { width: 26px; height: 26px; }
-  .donna-float::before { display: none; }
-  .wa-float::before { display: none; }
+  .donna-float::before,
+  .wa-float::before { display: none !important; }
 }
 @media (max-width: 480px) {
   .donna-chat-frame { height: 380px; }
